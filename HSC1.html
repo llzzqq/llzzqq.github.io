@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>HSC领域临床实验用干预药物与病症Top10分布 </title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 2000px;height:1000px;"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data:['fludarabine','filgrastim','tacrolimus','mycophenolate mofetil','etoposide phosphate','thymoglobulin','plerixafor','rituximab','bortezomib','alemtuzumab','Acute myelogenous leukemia','Multiple myeloma','Myelodysplastic syndrome','Acute lymphoblastic leukemia','HSC transplantation ','Non-Hodgkin lymphoma','Graft versus host disease','Hematological neoplasm','Hodgkins disease','Chronic myelocytic leukemia']
+            },
+            series: [
+                {
+                    name:'HSC领域临床实验用干预药物Top10分布',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[
+                        {value:136, name:'fludarabine', selected:true},
+                        {value:80, name:'filgrastim'},
+						{value:74, name:'tacrolimus'},
+						{value:69, name:'mycophenolate mofetil'},
+                        {value:67, name:'etoposide phosphate'},
+                        {value:50, name:'thymoglobulin'},
+                        {value:49, name:'plerixafor'},
+                        {value:47, name:'rituximab'},
+                        {value:28, name:'bortezomib'},
+                        {value:26, name:'alemtuzumab'}
+                    ]
+                },
+                {
+                    name:'HSC领域临床实验病症Top10分布',
+                    type:'pie',
+                    radius: ['40%', '55%'],
+                    data:[
+                        {value:134, name:'Acute myelogenous leukemia'},
+                        {value:90, name:'Multiple myeloma'},
+                        {value:77, name:'Myelodysplastic syndrome'},
+                        {value:72, name:'Acute lymphoblastic leukemia'},
+                        {value:65, name:'HSC transplantation'},
+                        {value:62, name:'Non-Hodgkin lymphoma'},
+                        {value:55, name:'Graft versus host disease'},
+						{value:51, name:'Hematological neoplasm'},
+                        {value:50, name:'Hodgkins disease'},
+                        {value:39, name:'Chronic myelocytic leukemia'}
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>

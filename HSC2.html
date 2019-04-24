@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>HSC领域药物的治疗领域与适应证Top10分布 </title>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 2000px;height:1000px;"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/dist/echarts.min.js"></script>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data:['Immune','Hematologic','Cancer','Endocrine/Metabolic','Cardiovascular','Infection','Musculoskeletal','Gastrointestinal','Neurology/Psychiatric','Toxicity','Bone marrow transplantation','HSC transplantation','Beta thalassemia','Acute myelogenous leukemia','Cancer ','Neutropenia','Severe combined immunodeficiency syndrome','Sickle cell anemia','Aplastic anemia','Graft versus host disease']
+            },
+            series: [
+                {
+                    name:'HSC领域药物的治疗领域Top10分布',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+                    label: {
+                        normal: {
+                            position: 'inner'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data:[
+                        {value:56, name:'Immune', selected:true},
+                        {value:48, name:'Hematologic'},
+						{value:28, name:'Cancer'},
+						{value:9, name:'Endocrine/Metabolic'},
+                        {value:8, name:'Cardiovascular'},
+                        {value:8, name:'Infection'},
+                        {value:5, name:'Musculoskeletal'},
+                        {value:4, name:'Gastrointestinal'},
+                        {value:4, name:'Neurology/Psychiatric'},
+                        {value:3, name:'Toxicity'}
+                    ]
+                },
+                {
+                    name:'HSC领域药物的适应证Top10分布',
+                    type:'pie',
+                    radius: ['40%', '55%'],
+                    data:[
+                        {value:19, name:'Bone marrow transplantation'},
+                        {value:19, name:'HSC transplantation'},
+                        {value:9, name:'Beta thalassemia'},
+                        {value:8, name:'Acute myelogenous leukemia'},
+                        {value:8, name:'Cancer '},
+                        {value:8, name:'Neutropenia'},
+                        {value:8, name:'Severe combined immunodeficiency syndrome'},
+						{value:8, name:'Sickle cell anemia'},
+                        {value:7, name:'Aplastic anemia'},
+                        {value:6, name:'Graft versus host disease'}
+                    ]
+                }
+            ]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
